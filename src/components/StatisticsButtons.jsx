@@ -25,12 +25,12 @@ padding: 5px;
 const StatisticsButtons = ( props ) => {
   return (
     <Container>
+      <Button>⚽</Button>
       <Button>🥅</Button>
-      <Button>strel</Button>
-      <Button>poskus</Button>
+      <Button>💩</Button>
       <Button>⛔</Button>
-      <Button>rumen</Button>
-      <Button>rdeč</Button>
+      <Button>🟡</Button>
+      <Button>🔴</Button>
 
 
     </Container>
