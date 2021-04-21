@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import {PlayerContext} from '../context/PlayerContext'
 import SidePanel from './SidePanel'
 import Middle from './Middle'
+import Shooters from './Shooters'
 
 const Grid = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 35% 30% 35%;
+  grid-template-columns: 25% 50% 25%;
   grid-template-rows: 15% 70% 15%;
   grid-template-areas:
     "header header header"
