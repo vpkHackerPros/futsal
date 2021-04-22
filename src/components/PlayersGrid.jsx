@@ -18,7 +18,7 @@ const PlayerRow = styled.button`
   font-size: 15px;
   padding: 2px;
   border: none;
-  background: ${ props => props.isChosen ? 'yellow' : 'white' };
+  background: ${ props => props.isChosen ? 'pink' : 'white' };
 
   :focus {
     outline: none;
@@ -32,7 +32,10 @@ const PlayersGrid = ( props ) => {
     <Container>
       {
         players[0]?.map((player, iter) => <PlayerRow
-            onClick={() => setIsChosen(iter)}
+            onClick={() => {
+              setIsChosen(iter)
+              props.setThisTeam()
+            }}
             isChosen={isChosen == iter}
           >{`${player?.number}  ${player?.name} ${player?.surname}`}</PlayerRow>
         )

@@ -15,7 +15,7 @@ const Middle = ( props ) => {
     <Container>
       <Score />
       <Statistics />
-      <StatisticsButtons />
+      <StatisticsButtons isTeamA={props.isTeamA} />
       <GraphicsButtons />
       <Shooters />
     </Container>

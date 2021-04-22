@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import {StatisticsContext} from '../context/StatisticsContext'
 
 const Container = styled.div`
   width: calc(100% - 30px);
   height: 100px;
-  background: white;
   margin :15px;
+  overflow: hidden;
 
   border-radius: 15px;
 
@@ -13,21 +14,22 @@ const Container = styled.div`
   grid-template-columns: 50% 50%;
 `
 
-const NumberInput = styled.input`
+const NumberInput = styled.div`
   color: black;
   font-size: 40px;
-  text-align: center;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  background: none;
 `
 
 const Score = props => {
-  const [scoreA, setScoreA] = useState(0)
-  const [scoreB, setScoreB] = useState(0)
+  const [stats, setStats] = useContext(StatisticsContext)
   return (
     <Container>
-      <NumberInput value={scoreA} onChange={evt => setScoreA(evt.target.value)} type={'number'} />
-      <NumberInput value={scoreB} onChange={evt => setScoreB(evt.target.value)} type={'number'} />
+      <NumberInput>{stats.goals[0]}</NumberInput>
+      <NumberInput>{stats.goals[1]}</NumberInput>
     </Container>
   )
 }

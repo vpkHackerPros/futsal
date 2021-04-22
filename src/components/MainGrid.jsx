@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import {PlayerContext} from '../context/PlayerContext'
 import SidePanel from './SidePanel'
 import Middle from './Middle'
-import Shooters from './Shooters'
+import Footer from './Footer'
 
 const Grid = styled.div`
   height: 100vh;
@@ -15,24 +15,22 @@ const Grid = styled.div`
     "header header header"
     "left   middle right"
     "footer footer footer";
+  box-sizing: border-box;
+  padding: 10px;
 `
 const Header = styled.div`
   grid-area: header;
 `
-const Footer = styled.div`
-  grid-area: footer;
-`
 
 const MainGrid = (props) => {
-  console.log(PlayerContext)
-  const Players = useContext(PlayerContext)
+  const [isTeamA, setIsTeamA] = useState(0)
   return (
     <Grid>
-      <SidePanel isTeamA={true} />
-      <SidePanel isTeamA={false} />
+      <SidePanel setThisTeam={() => setIsTeamA(0)} isTeamA={true} />
+      <SidePanel setThisTeam={() => setIsTeamA(1)} isTeamA={false} />
       <Header />
       <Footer />
-      <Middle />
+      <Middle isTeamA={isTeamA} />
     </Grid>
   )
 }
