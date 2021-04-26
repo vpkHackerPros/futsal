@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import FileSelector from './fileSelector'
+import Imports from './Imports'
 
 const StyledFooter = styled.div`
   grid-area: footer;
@@ -10,7 +10,7 @@ const StyledFooter = styled.div`
 const Footer = props => {
   return (
     <StyledFooter>
-      <FileSelector endpoint={'lineup'} />
+      <Imports />
     </StyledFooter>
   )
 }

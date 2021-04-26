@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import {StatisticsContext} from '../context/StatisticsContext'
 
 const Container = styled.div`
-  width: calc(100% - 30px);
+  width: 300px;
   height: 100px;
-  margin :15px;
+  margin: auto;
+  margin-bottom :15px;
   overflow: hidden;
 
   border-radius: 15px;

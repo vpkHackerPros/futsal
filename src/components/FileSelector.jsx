@@ -18,7 +18,7 @@ const postData = (endpoint, data) => {
 }
 
 const FileSelector = props => {
-  const [path, setPath] = useState('')
+  const [path, setPath] = useState(props.defaultPath)
 
   const onPathChange = (path) => {
     console.log('sending PATH ' + path)

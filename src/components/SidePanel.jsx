@@ -10,8 +10,8 @@ const Container = styled.div`
 const SidePanel = (props) => {
   return (
     <Container isTeamA={props.isTeamA}>
-      <PlayersGrid setThisTeam={props.setThisTeam} />
-      <TeamSpecific />
+      <PlayersGrid isChosen={props.isChosen} setIsChosen={props.setIsChosen} isTeamA={props.isTeamA}  setThisTeam={props.setThisTeam} />
+      <TeamSpecific isTeamA={props.isTeamA} />
     </Container>
   )
 }

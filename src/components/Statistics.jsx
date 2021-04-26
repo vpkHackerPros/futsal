@@ -3,15 +3,19 @@ import styled from 'styled-components'
 import {StatisticsContext} from '../context/StatisticsContext'
 
 
-const StyledInput = styled.input`
-
-height: 30px;
-width: 40px;
-border:none;
-border-radius: 3px;
+const StatDisplay = styled.div`
+  height: 30px;
+  width: 40px;
+  border:none;
+  border-radius: 3px;
+  background: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 const Container = styled.div`
-  width: 50%;
+  width: 80%;
   height: 130px;
   margin: auto;
   display: grid;
@@ -19,8 +23,16 @@ const Container = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
   `
 
-
-const Input = props => <StyledInput type={'number'} value={props.value} onChange={evt => props.setValue(evt.target.value)} />
+const StatName = styled.div`
+  border:none;
+  height: 30px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2px;
+  padding-right: 2px;
+`
 
 
 
@@ -30,27 +42,27 @@ const Statistics = props => {
 
   return (
     <Container>
-      <Input value={stats.goals[0]}/>
-      <div>GOLI</div>
-      <Input value={stats.goals[1]}/>
+      <StatDisplay>{stats.corners[0]}</StatDisplay>
+      <StatName>CORNERS┍</StatName>
+      <StatDisplay>{stats.corners[1]}</StatDisplay>
       <div></div>
-      <Input value={stats.shots[0]}/>
-      <div>STRELI</div>
-      <Input value={stats.shots[1]}/>
-      <Input value={stats.fouls[0]}/>
-      <div>FOULI</div>
-      <Input value={stats.fouls[1]}/>
+      <StatDisplay>{stats.shots[0]}</StatDisplay>
+      <StatName>STRELI🥅</StatName>
+      <StatDisplay>{stats.shots[1]}</StatDisplay>
+      <StatDisplay>{stats.fouls[0][0] + '/' + stats.fouls[0][1]}</StatDisplay>
+      <StatName>FOULI🚑</StatName>
+      <StatDisplay>{stats.fouls[1][0] + '/' + stats.fouls[1][1]}</StatDisplay>
       <div></div>
-      <Input value={stats.yellows[0]}/>
-      <div>RUMENI</div>
-      <Input value={stats.yellows[1]}/>
-      <Input value={stats.attempts[0]}/>
-      <div>POSKUSI</div>
-      <Input value={stats.attempts[1]}/>
+      <StatDisplay>{stats.yellows[0][0] + '/' + stats.yellows[0][1]}</StatDisplay>
+      <StatName>RUMENI🟡</StatName>
+      <StatDisplay>{stats.yellows[1][0] + '/' + stats.yellows[1][1]}</StatDisplay>
+      <StatDisplay>{stats.attempts[0]}</StatDisplay>
+      <StatName>POSKUSI🚀</StatName>
+      <StatDisplay>{stats.attempts[1]}</StatDisplay>
       <div></div>
-      <Input value={stats.reds[0]}/>
-      <div>RDECI</div>
-      <Input value={stats.reds[1]}/>
+      <StatDisplay>{stats.reds[0][0] + '/' + stats.reds[0][1]}</StatDisplay>
+      <StatName>RDECI🔴</StatName>
+      <StatDisplay>{stats.reds[1][0] + '/' + stats.reds[1][1]}</StatDisplay>
     </Container>
   )
 }
