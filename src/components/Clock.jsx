@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
+import { HalftimeContext } from '../context/HalftimeContext'
 import useInterval from '../hooks/useInterval'
 
 const Container = styled.div`
@@ -53,6 +54,7 @@ const Clock = props => {
   const [isIn2, setIsIn2] = useState(false)
   const [isIn3, setIsIn3] = useState(false)
   const [isIn4, setIsIn4] = useState(false)
+  const [time] = useContext(HalftimeContext)
 
   const getClock = () => {
     fetch('http://localhost:4545/clock')
@@ -63,7 +65,7 @@ const Clock = props => {
   return (
     <Container>
       <MainTime>{clock.clock[0]}</MainTime>
-      <Button onClick={() => fetch('http://localhost:4545/GFX_clock_IN')}>IN</Button>
+      <Button onClick={() => fetch(`http://localhost:4545/GFX_clock_IN/${time.time < 2 ? 0 : 1}`)}>IN</Button>
       <Button onClick={() => fetch('http://localhost:4545/GFX_clock_OUT')}>OUT</Button>
       <div></div>
       <div>{clock.clock[1]}</div>

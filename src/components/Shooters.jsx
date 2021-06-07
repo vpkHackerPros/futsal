@@ -76,10 +76,21 @@ const Shooters = props => {
     else timeString = 'HT_FT'
 
     let period = ''
-    if(time.time < 2) {
-      period = 'HALF TIME'
-    } else {
-      period ='FULL TIME'
+    switch (Number(time.time)) {
+      case 0: period='HALF-TIME'
+        break
+      case 1: period='HALF-TIME'
+        break
+      case 2: period='HALF-TIME'
+        break
+      case 3: period='HALF-TIME'
+        break
+      case 4: period='HALF-TIME'
+        break
+      case 5: period='FULL-TIME'
+        break
+      case 6: period='END OF 2nd HALF'
+        break
     }
 
     const scene = `MATCHSCORE_${size}_${timeString}`
@@ -89,7 +100,7 @@ const Shooters = props => {
       size,
       scene,
       period,
-      score: `${stats.goals[0]}-${stats.goals[0]}`,
+      score: `${stats.goals[0]}-${stats.goals[1]}`,
       shooters: [
         shooter01,
         shooter02,
